@@ -9,6 +9,8 @@ function App() {
   const [position, setPosition] = useState("");
   const [wage, setWage] = useState(0);
 
+  const [employeeList, setEmployeeList] = useState([])
+
   const addEmployee = () => {
   Axios.post("http://localhost:3001/create", {
       name: name,
@@ -17,7 +19,24 @@ function App() {
       position: position,
       wage: wage 
     }).then(() => {
-      console.log("success")
+      // console.log("success")
+      setEmployeeList([
+        ...employeeList,
+        {
+          name: name,
+          age: age,
+          country: country,
+          position: position,
+          wage: wage
+        },
+      ]);
+    });
+  }
+
+  const getEmployees = () => {
+    Axios.get("http://localhost:3001/employees").then((response) => {
+      console.log(response)
+      setEmployeeList(response.data)
     })
   }
 
@@ -60,8 +79,26 @@ function App() {
             setWage(event.target.value);
           }}
         />
-        <button onClick={addEmployee}>Add Employee</button>
+        <button className='btn-add' onClick={addEmployee}>Add Employee</button>
       </div>
+      <hr />
+      <div className='employees'>
+        <button onClick={getEmployees} className='btn-get'>Show Employees</button>
+        {employeeList.map((val, key) => {
+          //O atributo key deve ser único e aplicado ao componente pai de cada iteração.
+          return (
+            <div key={key.toString()} className='employee'>
+              <h4>Name: {val.name}</h4>
+              <h4>Age: {val.age}</h4>
+              <h4>Country: {val.country}</h4>
+              <h4> Position: {val.position}</h4>
+              <h4>Wage: {val.wage}</h4>
+            </div>
+          )
+        })}
+      </div>
+
+
     </div>
   );
 }
