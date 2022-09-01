@@ -20,6 +20,7 @@ function App() {
       wage: wage 
     }).then(() => {
       // console.log("success")
+      alert(`The employee ${name} was successfully registered!`)
       setEmployeeList([
         ...employeeList,
         {
@@ -97,8 +98,6 @@ function App() {
           )
         })}
       </div>
-
-
     </div>
   );
 }
