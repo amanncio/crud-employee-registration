@@ -11,6 +11,8 @@ function App() {
 
   const [employeeList, setEmployeeList] = useState([])
 
+  const [newWage, setNewWage] = useState(0)
+
   const addEmployee = () => {
   Axios.post("http://localhost:3001/create", {
       name: name,
@@ -40,6 +42,35 @@ function App() {
       setEmployeeList(response.data)
     })
   }
+
+  const updateEmployeeWage = (id) => {
+    Axios.put("http://localhost:3001/update", {
+      wage: newWage,
+      id: id
+    }).then((response) => {
+      setEmployeeList(employeeList.map((val) => {
+        return val.id === id ? {
+          id: val.id,
+          name: val.name,
+          country: val.country,
+          position: val.position,
+          age: val.age,
+          wage: newWage
+        } : val
+      }))
+      // alert("Updated");
+    })
+  }
+
+  const deleteEmployee = (id) => {
+    Axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
+      setEmployeeList(
+        employeeList.filter((val) => {
+          return val.id !== id;
+        })
+      );
+    });
+  };
 
   return (
     <div className="App">
@@ -89,11 +120,25 @@ function App() {
           //O atributo key deve ser único e aplicado ao componente pai de cada iteração.
           return (
             <div key={key.toString()} className='employee'>
-              <h4>Name: {val.name}</h4>
-              <h4>Age: {val.age}</h4>
-              <h4>Country: {val.country}</h4>
-              <h4> Position: {val.position}</h4>
-              <h4>Wage: {val.wage}</h4>
+              <div className='employee-data'>
+                <h4>Name: {val.name}</h4>
+                <h4>Age: {val.age}</h4>
+                <h4>Country: {val.country}</h4>
+                <h4> Position: {val.position}</h4>
+                <h4>Wage: {val.wage}</h4>
+              </div>
+              
+              <div className='employee-update'>
+                <input
+                  type="text" 
+                  placeholder="sla"
+                  onChange={(event) => {
+                    setNewWage(event.target.value);  
+                  }}
+                />
+                <button onClick={() => {updateEmployeeWage(val.id)}}>Update</button>
+                <button onClick={() => {deleteEmployee(val.id)}}>Delete</button>
+              </div>
             </div>
           )
         })}

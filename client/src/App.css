@@ -72,11 +72,36 @@ button:hover{
   width: 400px;
   background-color: rgba(75, 199, 64, 0.281);
   border: 1px solid #000;
+  display: flex;
 }
 
 @media(max-width: 500px) {
     .employee{
       width: 250px;
     }
+
+    .employee-update input{
+      width: 70px;
+    }
+    
+    
 }
 
+.employee-data{
+  /* background-color: tomato; */
+  width: 200px;  
+}
+
+.employee-update{
+  display: grid;
+  /* justify-content: flex-end; */
+}
+
+.employee-update input, button{
+  margin-left: 50px;
+  height: 30px;
+}
+
+.employee-update input{
+  padding-left: 7px;
+}
