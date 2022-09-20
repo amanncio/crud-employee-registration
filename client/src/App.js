@@ -137,7 +137,7 @@ function App() {
                   }}
                 />
                 <button onClick={() => {updateEmployeeWage(val.id)}}>Editar Salário</button>
-                <button onClick={() => {deleteEmployee(val.id)}}>Deletar Usuário</button>
+                <button onClick={() => {deleteEmployee(val.id)}}>Deletar</button>
               </div>
             </div>
           )
