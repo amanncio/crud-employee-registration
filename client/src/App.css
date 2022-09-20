@@ -41,7 +41,7 @@ h1{
 .btn-get,.btn-add{
   width: 150px;
   height: 40px;
-  margin-top: 20px;
+  margin: 0;
   color: #fff;
   background-color: teal;
   border: 1px solid #000;
@@ -50,7 +50,7 @@ h1{
 }
 
 .btn-get{
-  margin-bottom: 25px;
+  margin: 20px 0 25px 0;
 }
 
 button:hover{
@@ -61,7 +61,6 @@ button:hover{
 .employees{
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   flex-direction: column;
   width: 100%;
   margin-bottom: 120px;
@@ -73,6 +72,7 @@ button:hover{
   background-color: rgba(75, 199, 64, 0.281);
   border: 1px solid #000;
   display: flex;
+  align-items: center;
 }
 
 @media(max-width: 500px) {

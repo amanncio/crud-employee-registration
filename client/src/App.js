@@ -74,37 +74,37 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Employee Registration</h1>
+      <h1>Cadastro de Funcionário / Employee Registration</h1>
       <div className="information">
-        <label>Name</label>
+        <label>Nome</label>
         <input 
           type="text" 
           onChange={(event) => {
             setName(event.target.value);
           }} 
         />
-        <label>Age</label>
+        <label>Idade</label>
         <input 
           type="number" 
           onChange={(event) => {
             setAge(event.target.value);  
           }}
         />
-        <label>Country</label>
+        <label>País</label>
         <input 
           type="text"
           onChange={(event) =>{
             setCountry(event.target.value);
           }}
         />
-        <label>Position</label>
+        <label>Cargo</label>
         <input 
           type="text" 
           onChange={(event) => {
             setPosition(event.target.value);
           }}
         />
-        <label>Wage(year)</label>
+        <label>Salário(ano)</label>
         <input 
           type="number" 
           onChange={(event) => {
@@ -121,23 +121,23 @@ function App() {
           return (
             <div key={key.toString()} className='employee'>
               <div className='employee-data'>
-                <h4>Name: {val.name}</h4>
-                <h4>Age: {val.age}</h4>
-                <h4>Country: {val.country}</h4>
-                <h4> Position: {val.position}</h4>
-                <h4>Wage: {val.wage}</h4>
+                <h4>Nome: {val.name}</h4>
+                <h4>Idade: {val.age}</h4>
+                <h4>País: {val.country}</h4>
+                <h4>Cargo: {val.position}</h4>
+                <h4>Salário(ano): {val.wage}</h4>
               </div>
               
               <div className='employee-update'>
                 <input
                   type="text" 
-                  placeholder="sla"
+                  placeholder="Altere o Salário"
                   onChange={(event) => {
                     setNewWage(event.target.value);  
                   }}
                 />
-                <button onClick={() => {updateEmployeeWage(val.id)}}>Update</button>
-                <button onClick={() => {deleteEmployee(val.id)}}>Delete</button>
+                <button onClick={() => {updateEmployeeWage(val.id)}}>Editar Salário</button>
+                <button onClick={() => {deleteEmployee(val.id)}}>Deletar Usuário</button>
               </div>
             </div>
           )
