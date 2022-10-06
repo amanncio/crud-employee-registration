@@ -22,7 +22,7 @@ function App() {
       wage: wage 
     }).then(() => {
       // console.log("success")
-      alert(`The employee ${name} was successfully registered!`)
+      alert(`O funcionário ${name} foi registrado com sucesso!`)
       setEmployeeList([
         ...employeeList,
         {
@@ -111,11 +111,11 @@ function App() {
             setWage(event.target.value);
           }}
         />
-        <button className='btn-add' onClick={addEmployee}>Add Employee</button>
+        <button className='btn-add' onClick={addEmployee}>Adicionar Funcionário</button>
       </div>
       <hr />
       <div className='employees'>
-        <button onClick={getEmployees} className='btn-get'>Show Employees</button>
+        <button onClick={getEmployees} className='btn-get'>Exibir Funcionários</button>
         {employeeList.map((val, key) => {
           //O atributo key deve ser único e aplicado ao componente pai de cada iteração.
           return (
@@ -136,8 +136,8 @@ function App() {
                     setNewWage(event.target.value);  
                   }}
                 />
-                <button onClick={() => {updateEmployeeWage(val.id)}}>Editar Salário</button>
-                <button onClick={() => {deleteEmployee(val.id)}}>Deletar</button>
+                <button className='edit' onClick={() => {updateEmployeeWage(val.id)}}>Editar Salário</button>
+                <button className='delete' onClick={() => {deleteEmployee(val.id)}}>Deletar</button>
               </div>
             </div>
           )

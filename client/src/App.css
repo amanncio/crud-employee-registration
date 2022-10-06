@@ -40,24 +40,39 @@ h1{
   border-radius: 4px;
 }
 
-.btn-get,.btn-add{
+.btn-get, .btn-add{
   width: 150px;
   height: 40px;
   margin: 0;
   color: #fff;
   background-color: teal;
-  border: 1px solid #000;
+  border: none;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .btn-get{
   margin: 20px 0 25px 0;
 }
 
-button:hover{
+.btn-add:hover{
   cursor: pointer;
   background-color: rgba(9, 46, 46, 0.733);
+}
+
+.btn-get:hover{
+  cursor: pointer;
+  background-color: rgba(9, 46, 46, 0.733);
+}
+
+.delete:hover{
+  cursor: pointer;
+  background-color: rgb(218, 68, 68)
+}
+
+.edit:hover{
+  cursor: pointer;
+  background-color: rgba(9, 46, 46, 0.863);
 }
 
 .employees{
@@ -110,6 +125,19 @@ button:hover{
 .employee-update input, button{
   height: 30px;
   margin-bottom: 5px;
+}
+
+.edit{
+  background-color: #1D7373;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+}
+.delete{
+  background-color: rgba(218, 68, 68, 0.849);
+  border: none;
+  color: #fff;
+  border-radius: 4px;
 }
 
 .employee-update input{
